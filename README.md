@@ -8,17 +8,15 @@ NEAR Social users can publish posts on the platform for free, or sell them at re
 
 ## Scenarios
 
-	1. Makers can sell or transfer digital goods/data/NFT to the users on the platform. Followers will get notifications with the new posts. 
-	2. Investors can sell investment opinions to their followers. Oracle machines may be introduced for evaluating investment performance.
-	3. Developers own open source projects can be sponsored by the community on the platform.
+1. Makers can sell or transfer digital goods/data/NFT to the users on the platform. Followers will get notifications with the new posts. 
+2. Investors can sell investment opinions to their followers. Oracle machines may be introduced for evaluating investment performance.
+3. Developers own open source projects can be sponsored by the community on the platform.
 
 ## Milestones (3 months)
 
-M1: Support basic social network features: NEAR Wallet login, text and link posts, user profile and basic follow/like actions.
-	
-M2: Add token related features: sell/buy posts support, different data type support, and making high valuable posts more discoverable.
-
-M3: Support NEAR private shards for data exchange between enterprises securely. 
+- M1: Support basic social network features: NEAR Wallet login, text and link posts, user profile and basic follow/like actions.
+- M2: Add token related features: sell/buy posts support, different data type support, and making high valuable posts more discoverable.
+- M3: Support NEAR private shards for data exchange between enterprises securely. 
 
 ## 介绍
 
@@ -28,14 +26,12 @@ NEAR Social 用户可以免费或以合理价格发布信息。信息可以是�
 
 ## 场景
 
-	1. Makers 可以在平台上卖或转移数字商品/数据/NFT。关注者可以持续获得新信息的提醒，第一时间购买新的数字商品/数据/NFT。
-	2. 投资者可以向粉丝卖投资建议，或将引入预言机来评估投资结果。
-	3. 开源项目开发者可以通过平台获得来自其他用户的赞助。
+1. Makers 可以在平台上卖或转移数字商品/数据/NFT。关注者可以持续获得新信息的提醒，第一时间购买新的数字商品/数据/NFT。
+2. 投资者可以向粉丝卖投资建议，或将引入预言机来评估投资结果。
+3. 开源项目开发者可以通过平台获得来自其他用户的赞助。
 
 ## 里程碑（3 个月）
 
-M1: 支持最基础的社交网络功能：支持 NEAR 钱包登录，文本和连接信息发布，用户资料，基础的关注/赞操作。
-
-M2：增加 Token 相关功能：买卖信息支持，不同数据类型支持（文件、软件授权、NFT 等），让高价值信息更容易被其他用户发现。
-
-M3：支持 NEAR 私有分片，让企业间私有数据交易变得可行且安全。
+- M1: 支持最基础的社交网络功能：支持 NEAR 钱包登录，文本和连接信息发布，用户资料，基础的关注/赞操作。
+- M2：增加 Token 相关功能：买卖信息支持，不同数据类型支持（文件、软件授权、NFT 等），让高价值信息更容易被其他用户发现。
+- M3：支持 NEAR 私有分片，让企业间私有数据交易变得可行且安全。
