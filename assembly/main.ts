@@ -12,7 +12,7 @@ let postsByUser = new PersistentMap<string, PostArray>("pu");
 let users = new PersistentMap<string, User>("u");
 
 // Get Post
-export function getPost(id: string): Post {
+export function getPost(id: string): Post | null {
   return posts.get(id);
 }
 
@@ -22,7 +22,7 @@ export function setPost(post: Post): void {
 }
 
 // Get Post by User
-export function getPostByUser(user: string): PostArray {
+export function getPostByUser(user: string): PostArray | null {
   return postsByUser.get(user);
 }
 
