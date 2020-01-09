@@ -21,6 +21,7 @@ Zepto(function($){
     // Initializing our contract APIs by contract name and configuration.
     window.contract = await new nearlib.Contract(acct, nearConfig.contractName, {
       viewMethods: [
+        'getRecentPosts',
         'getPost',
         'getPostByUser',
         'userOf'
@@ -28,7 +29,7 @@ Zepto(function($){
       changeMethods: [
         'setPost',
         'setPostByUser',
-        'createPost'
+        'addPost'
       ],
       sender: window.accountId,
     });
@@ -36,7 +37,6 @@ Zepto(function($){
 
   // Using initialized contract
   async function init() {
-    // Based on whether you've authorized, checking which flow we should go.
     if (!window.walletAccount.isSignedIn()) {
       signedOutFlow();
     } else {
@@ -44,11 +44,12 @@ Zepto(function($){
     }
   }
 
-  // Function that initializes the signIn button using WalletAccount
+  // Sighted Out Flow
   function signedOutFlow() {
     $('#sign-in-button').removeClass('d-none');
+    $('.intro').removeClass('d-none');
     
-    document.getElementById('sign-in-button').addEventListener('click', () => {
+    $('#sign-in-button').on('click', function(e) {
       window.walletAccount.requestSignIn(
         window.nearConfig.contractName,
         'NEAR Social'
@@ -56,15 +57,64 @@ Zepto(function($){
     });
   }
 
-  // Main function for the signed-in flow (already authorized by the wallet).
+  // Signed In Flow
   function signedInFlow() {
+    $('#username').html('loading');
     $('#sign-out-button').removeClass('d-none');
+    $('.input').removeClass('d-none');
+    // Render current username
     var username = window.accountId;
     $('#username').html(username);
 
-    document.getElementById('sign-out-button').addEventListener('click', () => {
+    $('#sign-out-button').on('click', function(e) {
       walletAccount.signOut();
       window.location.replace(window.location.origin + window.location.pathname);
     });
+
+    $('#input-button').click(submitPost);
+    $('#refresh-button').click(refreshPosts);
+  }
+
+  // Submit Post Flow
+  function submitPost() {
+    let title = $('#input-title').html();
+    let content = ''; // TODO: Add Content string
+    let date = new Date();
+    let published_at = date.getTime();
+    let type = 'text' // TODO: Add more Type string
+
+    // Call the addPost contract
+    contract.addPost({title: title, content: content, published_at: published_at, type: type})
+      .then(() => {
+        $('#input-title').val('');
+        setTimeout(() => {
+          refreshPosts();
+        }, 1000);
+      })
+      .catch(console.error);
+  }
+
+  // Loading Posts
+  function refreshPosts() {
+    // Call the getPost contract
+    contract.getRecentPosts()
+      .then(renderPosts)
+      .catch(console.log);
+  }
+
+  // Render Posts
+  function renderPosts(posts) {
+    let objects = [];
+    for (let i = 0; i < posts.length; ++i) {
+      objects.push(
+        $('<div/>').addClass('row').append([
+          $('<div/>').addClass('col-sm-3').append(
+            $('<strong/>').text(posts[i].title)
+          ),
+          $('<div/>').addClass('col-sm-9').addClass('message-text').text(posts[i].content),
+        ])
+      );
+    }
+    $('#posts').empty().append(objects.reverse());
   }
 })

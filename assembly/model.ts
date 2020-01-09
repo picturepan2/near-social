@@ -14,7 +14,13 @@ export class PostArray {
   posts: Array<Post>;
 }
 
+// Model: Post Array
+export class PostTimeline {
+  id: string;
+}
+
 // Model: User
+// TODO: Add User Profile Page
 export class User {
   id: string;
   name: string;

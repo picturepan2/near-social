@@ -1,19 +1,35 @@
-import { context, storage, math, PersistentMap, base64 } from "near-runtime-ts";
+import { context, storage, math, PersistentMap, PersistentVector, base64 } from "near-runtime-ts";
 // available class: near, context, storage, logging, base58, base64, 
 // PersistentMap, PersistentVector, PersistentDeque, PersistentTopN, ContractPromise, math
 import { Post, PostArray, User } from "./model";
 
 const NAME: string = "NEAR Social";
-const POST_LIMIT = 20;
+const QUERY_LIMIT = 20;
 const ID_DIGITS: u32 = 16;
 
 let posts = new PersistentMap<string, Post>("p");
+let postsTimeline = new PersistentVector<string>("pt");
 let postsByUser = new PersistentMap<string, PostArray>("pu");
-let users = new PersistentMap<string, User>("u");
+// let users = new PersistentMap<string, User>("u");
+
+// Get Recent Posts
+export function getRecentPosts(): Array<Post> {
+  let numPosts = min(QUERY_LIMIT, postsTimeline.length);
+  let endIndex = postsTimeline.length - numPosts - 1;
+
+  let _posts = new Array<Post>(numPosts);
+  for (let i = postsTimeline.length; i > endIndex; i--) {
+    let _post = new Post();
+    let _id = postsTimeline[i];
+    _post = getPost(_id);
+    _posts.push(_post);
+  }
+  return _posts;
+}
 
 // Get Post
-export function getPost(id: string): Post | null {
-  return posts.get(id);
+export function getPost(id: string): Post {
+  return posts.getSome(id);
 }
 
 // Set Post
@@ -22,11 +38,12 @@ export function setPost(post: Post): void {
 }
 
 // Get Post by User
-export function getPostByUser(user: string): PostArray | null {
-  return postsByUser.get(user);
+export function getPostByUser(user: string): PostArray {
+  return postsByUser.getSome(user);
 }
 
-// Set Post by User
+// Set Post by User 
+// TODO: Transfer to Another User
 export function setPostByUser(post: Post): void {
   let _posts = getPostByUser(post.user).posts;
 
@@ -51,7 +68,7 @@ export function userOf(id: string): string {
 }
 
 // Add Post
-export function createPost(title: string, content: string, published_at: i32, type: string): Post {
+export function addPost(title: string, content: string, published_at: i32, type: string): Post {
   let post = new Post();
   let randId = generateRandomId();
   post.id = randId;
@@ -62,6 +79,7 @@ export function createPost(title: string, content: string, published_at: i32, ty
   post.type = type;
   setPost(post);
   setPostByUser(post);
+  updatePostsTimeline(post);
   return post;
 }
 
@@ -70,4 +88,9 @@ function generateRandomId(): string {
   let buf = math.randomBuffer(ID_DIGITS);
   let b64 = base64.encode(buf);
   return b64;
+}
+
+// Update Posts Timeline
+function updatePostsTimeline(post: Post): void {
+  postsTimeline.push(post.id);
 }
