@@ -48,6 +48,7 @@ Zepto(function($){
   function signedOutFlow() {
     $('#sign-in-button').removeClass('d-none');
     $('.intro').removeClass('d-none');
+    $('#fake-data').removeClass('d-none');
     
     $('#sign-in-button').on('click', function(e) {
       window.walletAccount.requestSignIn(
@@ -103,6 +104,7 @@ Zepto(function($){
   }
 
   // Render Posts
+  // TODO: Render Posts Normally
   function renderPosts(posts) {
     console.log(posts);
   }

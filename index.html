@@ -8,16 +8,16 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="NEAR blockchain-powered social network for valuable information and data exchange.">
     <meta name="author" content="Yan Zhu">
-    <link rel="stylesheet" href="assets/css/near.min.css">
+    <link rel="stylesheet" href="./assets/css/near.min.css">
     <link rel="shortcut icon" href="./favicon.ico">
-    <link rel="icon" href="assets/img/favicon.png">
-    <link rel="canonical" href="http://localhost:5000">
+    <link rel="icon" href="./assets/img/favicon.png">
+    <link rel="canonical" href="https://picturepan2.github.io/near-social/">
   </head>
   <body>
     <header class="section-header">
       <div class="container grid-xl">
         <div class="navbar">
-          <div class="navbar-brand"><a href="http://localhost:5000">NEAR<span class="ml-1">Social</span></a></div>
+          <div class="navbar-brand"><a href="https://picturepan2.github.io/near-social/">NEAR<span class="ml-1">Social</span></a></div>
           <div class="navbar-section"><span class="mr-2" id="username"></span>
             <button class="btn btn-primary btn-sm d-none" id="sign-in-button">Sign in with NEAR</button>
             <button class="btn btn-black btn-sm d-none" id="sign-out-button">Sign out</button>
@@ -40,24 +40,32 @@
             <div class="nearsocial-content">
               <h3 class="nearsocial-title">What's New</h3>
               <div id="posts"></div>
-              <div class="nearpost-item">
-                <div class="post-date">Jan 1, 2020</div>
-                <div class="post-title"><a href="#">Hello NEAR Protocol!</a></div>
-                <div class="post-user">Yan</div>
-                <div class="post-action"></div>
-              </div>
-              <div class="nearpost-item">
-                <div class="post-date">Jan 1, 2020</div>
-                <div class="post-title"><a href="#">This is a placeholder for post item templates.</a></div>
-                <div class="post-user">Yan</div>
-                <div class="post-action"></div>
-              </div>
-              <div class="nearpost-item highlight">
-                <div class="post-date">Jan 1, 2020</div>
-                <div class="post-title"><a href="#">Posting on the NEAR blockchain works. But loading off doesn't.</a></div>
-                <div class="post-user">Yan</div>
-                <div class="post-action">
-                  <div class="btn btn-sm btn-primary">Buy</div>
+              <div class="d-none" id="fake-data">
+                <div class="nearpost-item">
+                  <div class="post-date">Jan 3, 2020</div>
+                  <div class="post-title"><a href="#">This is a placeholder for post item templates.</a></div>
+                  <div class="post-user">Yan</div>
+                  <div class="post-action"></div>
+                </div>
+                <div class="nearpost-item">
+                  <div class="post-date">Jan 3, 2020</div>
+                  <div class="post-title"><a href="#">2020 Space Odyssey Digital Ticket.</a></div>
+                  <div class="post-user">Yan</div>
+                  <div class="post-action">
+                    <div class="btn btn-sm btn-primary">Buy</div>
+                  </div>
+                </div>
+                <div class="nearpost-item">
+                  <div class="post-date">Jan 3, 2020</div>
+                  <div class="post-title"><a href="#">Monetize valuable digital goods to your audience.</a></div>
+                  <div class="post-user">Yan</div>
+                  <div class="post-action"></div>
+                </div>
+                <div class="nearpost-item">
+                  <div class="post-date">Jan 2, 2020</div>
+                  <div class="post-title"><a href="#">Hello NEAR Protocol!</a></div>
+                  <div class="post-user">Yan</div>
+                  <div class="post-action"></div>
                 </div>
               </div>
               <button class="btn btn-black btn-block" id="refresh-button">Refresh</button>
@@ -82,8 +90,8 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/nearprotocol/nearlib@0.19.1/dist/nearlib.js"></script>
-    <script src="assets/js/zepto.min.js"></script>
-    <script src="./config.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="./assets/js/zepto.min.js"></script>
+    <script src="./assets/js/config.js"></script>
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>

@@ -2907,6 +2907,7 @@ a.text-error:visited {
 .section-main .intro {
   background: #f9f9f9;
   color: #202020;
+  margin-bottom: 2rem;
   padding: 2rem;
 }
 
@@ -2973,17 +2974,17 @@ a.text-error:visited {
 .nearpost-item .post-date {
   -webkit-box-flex: 1;
   color: #535353;
-  flex: 1 0 20%;
+  flex: 1 0 15%;
   padding: 0 .5rem 0 0;
-  width: 20%;
+  width: 15%;
 }
 
 .nearpost-item .post-title {
   -webkit-box-flex: 1;
-  flex: 1 1 50%;
+  flex: 1 1 60%;
   font-weight: 700;
   padding: 0 .5rem;
-  width: 50%;
+  width: 60%;
 }
 
 .nearpost-item .post-title a {
@@ -2993,9 +2994,9 @@ a.text-error:visited {
 .nearpost-item .post-user {
   -webkit-box-flex: 1;
   color: #535353;
-  flex: 1 0 25%;
+  flex: 1 0 10%;
   padding: 0 .5rem;
-  width: 25%;
+  width: 10%;
 }
 
 .nearpost-item .post-action {
