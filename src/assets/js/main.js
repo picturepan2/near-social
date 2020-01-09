@@ -97,24 +97,13 @@ Zepto(function($){
   // Loading Posts
   function refreshPosts() {
     // Call the getPost contract
-    contract.getRecentPosts()
+    contract.getRecentPosts({})
       .then(renderPosts)
       .catch(console.log);
   }
 
   // Render Posts
   function renderPosts(posts) {
-    let objects = [];
-    for (let i = 0; i < posts.length; ++i) {
-      objects.push(
-        $('<div/>').addClass('row').append([
-          $('<div/>').addClass('col-sm-3').append(
-            $('<strong/>').text(posts[i].title)
-          ),
-          $('<div/>').addClass('col-sm-9').addClass('message-text').text(posts[i].content),
-        ])
-      );
-    }
-    $('#posts').empty().append(objects.reverse());
+    console.log(posts);
   }
 })

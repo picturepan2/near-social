@@ -7563,7 +7563,7 @@
   (local $3 i32)
   (local $4 i32)
   (local $5 i32)
-  i32.const 1
+  i32.const 20
   local.tee $0
   global.get $assembly/main/postsTimeline
   call $~lib/near-runtime-ts/collections/persistentVector/PersistentVector<~lib/string/String>#get:length
@@ -11072,98 +11072,96 @@
   drop
   i32.const 0
   call $assembly/model/Post#constructor
-  local.tee $4
   local.tee $5
+  local.tee $4
   call $assembly/main/generateRandomId
   local.tee $7
   local.tee $6
-  local.get $5
+  local.get $4
   i32.load
-  local.tee $5
+  local.tee $4
   i32.ne
   if
    local.get $6
    call $~lib/rt/stub/__retain
    drop
-   local.get $5
+   local.get $4
    call $~lib/rt/stub/__release
   end
   local.get $6
   i32.store
   local.get $0
-  local.tee $5
-  local.get $4
+  local.tee $4
+  local.get $5
   i32.load offset=4
   local.tee $6
   i32.ne
   if
-   local.get $5
+   local.get $4
    call $~lib/rt/stub/__retain
    drop
    local.get $6
    call $~lib/rt/stub/__release
   end
-  local.get $4
   local.get $5
+  local.get $4
   i32.store offset=4
   local.get $1
   local.tee $6
-  local.get $4
+  local.get $5
   i32.load offset=8
-  local.tee $5
+  local.tee $4
   i32.ne
   if
    local.get $6
    call $~lib/rt/stub/__retain
    drop
-   local.get $5
+   local.get $4
    call $~lib/rt/stub/__release
   end
-  local.get $4
+  local.get $5
   local.get $6
   i32.store offset=8
-  local.get $4
+  local.get $5
   local.get $2
   i32.store offset=12
   global.get $~lib/near-runtime-ts/contract/context
   call $~lib/near-runtime-ts/contract/Context#get:sender
   local.tee $6
   local.tee $2
-  local.get $4
+  local.get $5
   i32.load offset=16
-  local.tee $5
+  local.tee $4
   i32.ne
   if
    local.get $2
    call $~lib/rt/stub/__retain
    drop
-   local.get $5
+   local.get $4
    call $~lib/rt/stub/__release
   end
-  local.get $4
+  local.get $5
   local.get $2
   i32.store offset=16
   local.get $3
-  local.tee $5
-  local.get $4
+  local.tee $4
+  local.get $5
   i32.load offset=20
   local.tee $2
   i32.ne
   if
-   local.get $5
+   local.get $4
    call $~lib/rt/stub/__retain
    drop
    local.get $2
    call $~lib/rt/stub/__release
   end
-  local.get $4
   local.get $5
+  local.get $4
   i32.store offset=20
-  local.get $4
+  local.get $5
   call $assembly/main/setPost
-  local.get $4
-  call $assembly/main/setPostByUser
-  local.get $4
+  local.get $5
   call $assembly/main/updatePostsTimeline
   local.get $7
   call $~lib/rt/stub/__release
@@ -11175,7 +11173,7 @@
   call $~lib/rt/stub/__release
   local.get $3
   call $~lib/rt/stub/__release
-  local.get $4
+  local.get $5
  )
  (func $assembly/main/__wrapper_addPost (; 261 ;) (type $FUNCSIG$v)
   (local $0 i32)

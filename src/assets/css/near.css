@@ -2884,6 +2884,10 @@ a.text-error:visited {
   text-transform: uppercase;
 }
 
+.section-header .navbar .navbar-section {
+  text-transform: uppercase;
+}
+
 @media screen and (max-width: 600px) {
   .section-header .navbar .navbar-section {
     -webkit-box-pack: start !important;
@@ -2901,9 +2905,17 @@ a.text-error:visited {
 }
 
 .section-main .intro {
-  background: #3639a4;
-  color: #fff;
+  background: #f9f9f9;
+  color: #202020;
   padding: 2rem;
+}
+
+.section-main .intro .intro-title {
+  font-weight: 700;
+}
+
+.section-main .intro .intro-subtitle {
+  margin-top: 1.5rem;
 }
 
 .section-main .input {
@@ -2922,32 +2934,12 @@ a.text-error:visited {
   width: 4rem;
 }
 
-.section-main .nearsocial-content {
-  padding: 2rem 0;
+.section-main #refresh-button {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
-.blockevent-content {
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  display: flex;
-  flex-direction: column;
-  min-height: 50vh;
-}
-
-.blockevent-content .blockevent-title {
-  font-size: .6rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  padding: .5rem 0;
-  text-transform: uppercase;
-}
-
-.blockevent-content .blockevent-item {
-  display: none;
-}
-
-.blockevent-content .blockevent-item.upcoming {
+.nearpost-item {
   align-items: center;
   background: #f9f9f9;
   -webkit-box-align: center;
@@ -2958,27 +2950,27 @@ a.text-error:visited {
   position: relative;
 }
 
-.blockevent-content .blockevent-item.upcoming:not(:last-child) {
+.nearpost-item:not(:last-child) {
   margin-bottom: .1rem;
 }
 
-.blockevent-content .blockevent-item.upcoming:hover {
+.nearpost-item:hover {
   background: #f6f6f6;
 }
 
-.blockevent-content .blockevent-item.upcoming.highlight {
+.nearpost-item.highlight {
   background: #f1eefc;
 }
 
-.blockevent-content .blockevent-item.upcoming.highlight:hover {
+.nearpost-item.highlight:hover {
   background: #edeafb;
 }
 
-.blockevent-content .blockevent-item.upcoming.highlight .event-name a {
+.nearpost-item.highlight .event-name a {
   color: #3639a4;
 }
 
-.blockevent-content .blockevent-item.upcoming .event-date {
+.nearpost-item .post-date {
   -webkit-box-flex: 1;
   color: #535353;
   flex: 1 0 20%;
@@ -2986,7 +2978,7 @@ a.text-error:visited {
   width: 20%;
 }
 
-.blockevent-content .blockevent-item.upcoming .event-name {
+.nearpost-item .post-title {
   -webkit-box-flex: 1;
   flex: 1 1 50%;
   font-weight: 700;
@@ -2994,11 +2986,11 @@ a.text-error:visited {
   width: 50%;
 }
 
-.blockevent-content .blockevent-item.upcoming .event-name a {
+.nearpost-item .post-title a {
   color: #202020;
 }
 
-.blockevent-content .blockevent-item.upcoming .event-location {
+.nearpost-item .post-user {
   -webkit-box-flex: 1;
   color: #535353;
   flex: 1 0 25%;
@@ -3006,32 +2998,15 @@ a.text-error:visited {
   width: 25%;
 }
 
-.blockevent-content .blockevent-item.upcoming .event-action {
+.nearpost-item .post-action {
   -webkit-box-flex: 1;
   flex: 1 0 auto;
   text-align: right;
   width: 4rem;
 }
 
-.blockevent-content .blockevent-item.upcoming .event-action .btn-sm {
+.nearpost-item .post-action .btn-sm {
   font-weight: 700;
   text-transform: uppercase;
   width: 4rem;
-}
-
-@media screen and (max-width: 600px) {
-  .blockevent-content .blockevent-item.upcoming {
-    display: block;
-  }
-  .blockevent-content .blockevent-item.upcoming .event-date,
-  .blockevent-content .blockevent-item.upcoming .event-name,
-  .blockevent-content .blockevent-item.upcoming .event-location,
-  .blockevent-content .blockevent-item.upcoming .event-action {
-    padding: 0;
-    width: 100%;
-  }
-  .blockevent-content .blockevent-item.upcoming .event-name {
-    font-size: 1rem;
-    margin: .2rem 0;
-  }
 }

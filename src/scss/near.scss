@@ -63,6 +63,8 @@
     }
 
     .navbar-section {
+      text-transform: uppercase;
+
       @media screen and (max-width: $size-sm) {
         justify-content: flex-start !important;
       }
@@ -79,9 +81,17 @@
   padding: $unit-4 0;
 
   .intro {
-    background: $primary-color;
-    color: $light-color;
+    background: $gray-color;
+    color: $dark-color;
     padding: 2rem;
+
+    .intro-title {
+      font-weight: 700;
+    }
+
+    .intro-subtitle {
+      margin-top: 1.5rem;
+    }
   }
 
   .input {
@@ -99,110 +109,77 @@
     }
   }
 
-  .nearsocial-content {
-    padding: 2rem 0;
+  #refresh-button {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
   }
 }
 
-.blockevent-content {
+//- Post Item Template
+.nearpost-item {
+  align-items: center;
+  background: $bg-color;
   display: flex;
-  flex-direction: column;
-  min-height: 50vh;
+  font-size: .7rem;
+  padding: .8rem;
+  position: relative;
 
-  .blockevent-title {
-    font-size: .6rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    padding: .5rem 0;
-    text-transform: uppercase;
+  &:not(:last-child) {
+    margin-bottom: .1rem;
   }
 
-  .blockevent-item {
-    display: none;
+  &:hover {
+    background: darken($bg-color, 1%);
   }
 
-  .blockevent-item.upcoming {
-    align-items: center;
-    background: $bg-color;
-    display: flex;
-    font-size: .7rem;
-    padding: .8rem;
-    position: relative;
-
-    &:not(:last-child) {
-      margin-bottom: .1rem;
-    }
+  &.highlight {
+    background: $secondary-color;
 
     &:hover {
-      background: darken($bg-color, 1%);
-    }
-
-    &.highlight {
-      background: $secondary-color;
-
-      &:hover {
-        background: darken($secondary-color, 1%);
-      }
-
-      .event-name {
-        a {
-          color: $primary-color;
-        }
-      }
-    }
-
-    .event-date {
-      color: lighten($dark-color, 20%);
-      flex: 1 0 20%;
-      padding: 0 .5rem 0 0;
-      width: 20%;
+      background: darken($secondary-color, 1%);
     }
 
     .event-name {
-      flex: 1 1 50%;
-      font-weight: 700;
-      padding: 0 .5rem;
-      width: 50%;
-
       a {
-        color: $dark-color;
+        color: $primary-color;
       }
     }
+  }
 
-    .event-location {
-      color: lighten($dark-color, 20%);
-      flex: 1 0 25%;
-      padding: 0 .5rem;
-      width: 25%;
+  .post-date {
+    color: lighten($dark-color, 20%);
+    flex: 1 0 20%;
+    padding: 0 .5rem 0 0;
+    width: 20%;
+  }
+
+  .post-title {
+    flex: 1 1 50%;
+    font-weight: 700;
+    padding: 0 .5rem;
+    width: 50%;
+
+    a {
+      color: $dark-color;
     }
+  }
 
-    .event-action {
-      flex: 1 0 auto;
-      text-align: right;
+  .post-user {
+    color: lighten($dark-color, 20%);
+    flex: 1 0 25%;
+    padding: 0 .5rem;
+    width: 25%;
+  }
+
+  .post-action {
+    flex: 1 0 auto;
+    text-align: right;
+    width: 4rem;
+
+    .btn-sm {
+      font-weight: 700;
+      text-transform: uppercase;
       width: 4rem;
-
-      .btn-sm {
-        font-weight: 700;
-        text-transform: uppercase;
-        width: 4rem;
-      }
-    }
-
-    @media screen and (max-width: $size-sm) {
-      display: block;
-
-      .event-date,
-      .event-name,
-      .event-location,
-      .event-action {
-        padding: 0;
-        width: 100%;
-      }
-
-      .event-name {
-        font-size: 1rem;
-        margin: .2rem 0;
-      }
     }
   }
 }

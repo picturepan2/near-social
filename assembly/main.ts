@@ -18,7 +18,7 @@ export function getRecentPosts(): Array<Post> {
   let endIndex = postsTimeline.length - numPosts - 1;
 
   let _posts = new Array<Post>(numPosts);
-  for (let i = postsTimeline.length; i > endIndex; i--) {
+  for (let i = postsTimeline.length; i > endIndex; --i) {
     let _post = new Post();
     let _id = postsTimeline[i];
     _post = getPost(_id);
@@ -38,6 +38,7 @@ export function setPost(post: Post): void {
 }
 
 // Get Post by User
+// TODO: Show Posts by a Single User
 export function getPostByUser(user: string): PostArray {
   return postsByUser.getSome(user);
 }
@@ -78,7 +79,6 @@ export function addPost(title: string, content: string, published_at: i32, type:
   post.user = context.sender;
   post.type = type;
   setPost(post);
-  setPostByUser(post);
   updatePostsTimeline(post);
   return post;
 }
