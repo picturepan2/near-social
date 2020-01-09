@@ -1,0 +1,185 @@
+// Variables and mixins
+@import "variables";
+@import "mixins";
+
+/*! Spectre.css | MIT License | github.com/picturepan2/spectre */
+// Reset and dependencies
+@import "normalize";
+@import "base";
+
+// Elements
+@import "typography";
+@import "buttons";
+@import "forms";
+@import "labels";
+@import "media";
+
+// Layout
+@import "layout";
+@import "navbar";
+
+// Components
+@import "cards";
+@import "dropdowns";
+@import "empty";
+@import "menus";
+@import "modals";
+@import "tooltips";
+
+// Utility classes
+@import "animations";
+@import "utilities";
+
+/*! Near Social | MIT License */
+.section-header {
+  .navbar-brand {
+    a {
+      color: $dark-color;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 2.2rem;
+      margin-right: .5rem;
+      text-transform: uppercase;
+    }
+
+    span {
+      font-weight: 400;
+    }
+
+    .twitter-link {
+      font-size: .6rem;
+      font-weight: 400;
+      margin-right: 2rem;
+    }
+  }
+
+  .navbar {
+    border-bottom: .15rem double $border-color;
+    padding: $unit-4 0;
+
+    .btn {
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .navbar-section {
+      text-transform: uppercase;
+
+      @media screen and (max-width: $size-sm) {
+        justify-content: flex-start !important;
+      }
+    }
+  }
+
+  .navbar-section {
+    padding: .4rem 0;
+  }
+}
+
+.section-main {
+  min-height: 80vh;
+  padding: $unit-4 0;
+
+  .intro {
+    background: $gray-color;
+    color: $dark-color;
+    padding: 2rem;
+
+    .intro-title {
+      font-weight: 700;
+    }
+
+    .intro-subtitle {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .input {
+    display: flex;
+    padding: 2rem 0;
+
+    #input-title {
+      height: 3.5rem;
+    }
+
+    #input-button {
+      height: 3.5rem;
+      margin-left: 1rem;
+      width: 4rem;
+    }
+  }
+
+  #refresh-button {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+  }
+}
+
+//- Post Item Template
+.nearpost-item {
+  align-items: center;
+  background: $bg-color;
+  display: flex;
+  font-size: .7rem;
+  padding: .8rem;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: .1rem;
+  }
+
+  &:hover {
+    background: darken($bg-color, 1%);
+  }
+
+  &.highlight {
+    background: $secondary-color;
+
+    &:hover {
+      background: darken($secondary-color, 1%);
+    }
+
+    .event-name {
+      a {
+        color: $primary-color;
+      }
+    }
+  }
+
+  .post-date {
+    color: lighten($dark-color, 20%);
+    flex: 1 0 20%;
+    padding: 0 .5rem 0 0;
+    width: 20%;
+  }
+
+  .post-title {
+    flex: 1 1 50%;
+    font-weight: 700;
+    padding: 0 .5rem;
+    width: 50%;
+
+    a {
+      color: $dark-color;
+    }
+  }
+
+  .post-user {
+    color: lighten($dark-color, 20%);
+    flex: 1 0 25%;
+    padding: 0 .5rem;
+    width: 25%;
+  }
+
+  .post-action {
+    flex: 1 0 auto;
+    text-align: right;
+    width: 4rem;
+
+    .btn-sm {
+      font-weight: 700;
+      text-transform: uppercase;
+      width: 4rem;
+    }
+  }
+}
