@@ -83,6 +83,7 @@
   .intro {
     background: $gray-color;
     color: $dark-color;
+    margin-bottom: 2rem;
     padding: 2rem;
 
     .intro-title {
@@ -148,16 +149,16 @@
 
   .post-date {
     color: lighten($dark-color, 20%);
-    flex: 1 0 20%;
+    flex: 1 0 15%;
     padding: 0 .5rem 0 0;
-    width: 20%;
+    width: 15%;
   }
 
   .post-title {
-    flex: 1 1 50%;
+    flex: 1 1 60%;
     font-weight: 700;
     padding: 0 .5rem;
-    width: 50%;
+    width: 60%;
 
     a {
       color: $dark-color;
@@ -166,9 +167,9 @@
 
   .post-user {
     color: lighten($dark-color, 20%);
-    flex: 1 0 25%;
+    flex: 1 0 10%;
     padding: 0 .5rem;
-    width: 25%;
+    width: 10%;
   }
 
   .post-action {

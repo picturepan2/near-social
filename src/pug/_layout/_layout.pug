@@ -1,5 +1,5 @@
 block global
-  - var domain = 'http://localhost:5000'
+  - var domain = 'https://picturepan2.github.io/near-social/'
   - var url = domain
 
 block variables
@@ -26,9 +26,9 @@ html(lang='en')
     meta(http-equiv='x-ua-compatible' content='ie=edge')
     meta(name='description' content= description)
     meta(name='author' content='Yan Zhu')
-    link(rel='stylesheet' href='assets/css/near.min.css')
+    link(rel='stylesheet' href='./assets/css/near.min.css')
     link(rel='shortcut icon' href='./favicon.ico')
-    link(rel='icon' href='assets/img/favicon.png')
+    link(rel='icon' href='./assets/img/favicon.png')
     link(rel='canonical' href= url)
 
   body
@@ -36,6 +36,6 @@ html(lang='en')
 
     script(src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js")
     script(src="https://cdn.jsdelivr.net/gh/nearprotocol/nearlib@0.19.1/dist/nearlib.js")
-    script(src="assets/js/zepto.min.js")
-    script(src="./config.js")
-    script(src="assets/js/main.js")
+    script(src="./assets/js/zepto.min.js")
+    script(src="./assets/js/config.js")
+    script(src="./assets/js/main.js")
