@@ -2940,6 +2940,10 @@ a.text-error:visited {
   margin-top: 1rem;
 }
 
+.section-main .nearsocial-title {
+  margin-bottom: 1rem;
+}
+
 .nearpost-item {
   align-items: center;
   background: #f9f9f9;

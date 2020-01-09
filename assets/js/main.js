@@ -84,10 +84,11 @@ Zepto(function($){
     let published_at = date.getTime();
     let type = 'text' // TODO: Add more Type string
 
+    $('#input-title').addClass('disabled');
     // Call the addPost contract
     contract.addPost({title: title, content: content, published_at: published_at, type: type})
       .then(() => {
-        $('#input-title').val('');
+        $('#input-title').val('').removeClass('disabled');
         setTimeout(() => {
           refreshPosts();
         }, 1000);
@@ -98,7 +99,7 @@ Zepto(function($){
   // Loading Posts
   function refreshPosts() {
     // Call the getPost contract
-    contract.getRecentPosts({})
+    contract.getRecentPosts()
       .then(renderPosts)
       .catch(console.log);
   }
