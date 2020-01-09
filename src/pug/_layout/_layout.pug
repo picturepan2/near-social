@@ -1,0 +1,41 @@
+block global
+  - var domain = 'http://localhost:5000'
+  - var url = domain
+
+block variables
+  - var slug = 'index'
+  - var parent = 'index'
+  - var title = 'NEAR Social'
+  - var description = 'NEAR blockchain-powered social network for valuable information and data exchange.'
+
+if parent = 'index'
+  if slug == 'index'
+    - var url = domain 
+  else
+    - var url = domain + '/' + slug + '.html'
+else 
+  - var url = domain + parent + '/' + slug + '.html'
+
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='robots' content='index, follow')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0, shrink-to-fit=no')
+    meta(http-equiv='x-ua-compatible' content='ie=edge')
+    meta(name='description' content= description)
+    meta(name='author' content='Yan Zhu')
+    link(rel='stylesheet' href='assets/css/near.min.css')
+    link(rel='shortcut icon' href='./favicon.ico')
+    link(rel='icon' href='assets/img/favicon.png')
+    link(rel='canonical' href= url)
+
+  body
+    block content
+
+    script(src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js")
+    script(src="https://cdn.jsdelivr.net/gh/nearprotocol/nearlib@0.19.1/dist/nearlib.js")
+    script(src="assets/js/zepto.min.js")
+    script(src="./config.js")
+    script(src="assets/js/main.js")

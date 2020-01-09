@@ -1,4 +1,4 @@
-import { context, storage, near, PersistentMap, base64 } from "near-runtime-ts";
+import { context, storage, math, PersistentMap, base64 } from "near-runtime-ts";
 // available class: near, context, storage, logging, base58, base64, 
 // PersistentMap, PersistentVector, PersistentDeque, PersistentTopN, ContractPromise, math
 import { Post, PostArray, User } from "./model";
@@ -50,15 +50,8 @@ export function userOf(id: string): string {
   return user;
 }
 
-// Get a Random Id
-function generateRandomId(): string {
-  let buf = near.randomBuffer(ID_DIGITS);
-  let b64 = base64.encode(buf);
-  return b64;
-}
-
 // Add Post
-function createPost(title: string, content: string, published_at: Int32Array, type: string): Post {
+export function createPost(title: string, content: string, published_at: i32, type: string): Post {
   let post = new Post();
   let randId = generateRandomId();
   post.id = randId;
@@ -70,4 +63,11 @@ function createPost(title: string, content: string, published_at: Int32Array, ty
   setPost(post);
   setPostByUser(post);
   return post;
+}
+
+// Get a Random Id
+function generateRandomId(): string {
+  let buf = math.randomBuffer(ID_DIGITS);
+  let b64 = base64.encode(buf);
+  return b64;
 }

@@ -1,0 +1,370 @@
+// Variables and mixins
+@import "variables";
+@import "mixins";
+
+/*! Spectre.css | MIT License | github.com/picturepan2/spectre */
+// Reset and dependencies
+@import "normalize";
+@import "base";
+
+// Elements
+@import "typography";
+@import "buttons";
+@import "forms";
+@import "labels";
+@import "media";
+
+// Layout
+@import "layout";
+@import "navbar";
+
+// Components
+@import "cards";
+@import "dropdowns";
+@import "empty";
+@import "menus";
+@import "modals";
+@import "tooltips";
+
+// Utility classes
+@import "animations";
+@import "utilities";
+
+/*! Near Social | MIT License */
+.section-header {
+  .navbar-brand {
+    a {
+      color: $dark-color;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 2.2rem;
+      margin-right: .5rem;
+      text-transform: uppercase;
+    }
+
+    span {
+      font-weight: 400;
+    }
+
+    .twitter-link {
+      font-size: .6rem;
+      font-weight: 400;
+      margin-right: 2rem;
+    }
+  }
+
+  .navbar {
+    border-bottom: .15rem double $border-color;
+    padding: $unit-4 0;
+
+    .btn {
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .navbar-section {
+      @media screen and (max-width: $size-sm) {
+        justify-content: flex-start !important;
+      }
+    }
+  }
+
+  .navbar-section {
+    padding: .4rem 0;
+  }
+}
+
+.section-main {
+  padding: $unit-4 0;
+
+  @media screen and (max-width: $size-md) {
+    .content-container {
+      order: 2;
+    }
+    .sidebar-container {
+      order: 1;
+    }
+  }
+
+  .sidebar-container {
+    min-width: 9.8rem;
+  }
+}
+
+.blockevent-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+
+  .blockevent-title {
+    font-size: .6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding: .5rem 0;
+    text-transform: uppercase;
+  }
+
+  .blockevent-item {
+    display: none;
+  }
+
+  .blockevent-item.upcoming {
+    align-items: center;
+    background: $bg-color;
+    display: flex;
+    font-size: .7rem;
+    padding: .8rem;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: .1rem;
+    }
+
+    &:hover {
+      background: darken($bg-color, 1%);
+    }
+
+    &.highlight {
+      background: $secondary-color;
+
+      &:hover {
+        background: darken($secondary-color, 1%);
+      }
+
+      .event-name {
+        a {
+          color: $primary-color;
+        }
+      }
+    }
+
+    .event-date {
+      color: lighten($dark-color, 20%);
+      flex: 1 0 20%;
+      padding: 0 .5rem 0 0;
+      width: 20%;
+    }
+
+    .event-name {
+      flex: 1 1 50%;
+      font-weight: 700;
+      padding: 0 .5rem;
+      width: 50%;
+
+      a {
+        color: $dark-color;
+      }
+    }
+
+    .event-location {
+      color: lighten($dark-color, 20%);
+      flex: 1 0 25%;
+      padding: 0 .5rem;
+      width: 25%;
+    }
+
+    .event-action {
+      flex: 1 0 auto;
+      text-align: right;
+      width: 4rem;
+
+      .btn-sm {
+        font-weight: 700;
+        text-transform: uppercase;
+        width: 4rem;
+      }
+    }
+
+    @media screen and (max-width: $size-sm) {
+      display: block;
+
+      .event-date,
+      .event-name,
+      .event-location,
+      .event-action {
+        padding: 0;
+        width: 100%;
+      }
+
+      .event-name {
+        font-size: 1rem;
+        margin: .2rem 0;
+      }
+    }
+  }
+}
+
+.blockevent-sidebar {
+  @media screen and (min-width: $size-md) {
+    position: sticky;
+    top: 0;
+  }
+
+  .blockevent-title {
+    color: $gray-color-dark;
+    font-size: .6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding: .5rem .4rem;
+    text-transform: uppercase;
+  }
+
+  .blockevent-sponsors {
+    background: $light-color;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  .sponsor-item {
+    align-items: center;
+    background: $bg-color;
+    display: flex;
+    height: 4rem;
+    justify-content: center;
+    margin: 0 auto;
+    width: 9rem;
+
+    a {
+      color: $gray-color-dark;
+    }
+  }
+}
+.section-faq {
+  background: $bg-color;
+  margin: 4rem 0 1rem 0;
+  padding: 4rem 0;
+
+  .blockevent-title {
+    text-align: center;
+  }
+}
+
+.blockevent-faq {
+  .faq-title {
+    padding: 1rem 0;
+
+    h3 {
+      color: $primary-color;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  }
+
+  .faq-content {
+    margin-bottom: 2rem;
+  }
+
+  .label {
+    font-size: .8rem;
+    overflow: auto;
+    padding: .5rem;
+    user-select: all;
+    width: 100%;
+  }
+}
+
+.section-footer {
+  padding: $unit-4 0;
+}
+
+// Ads
+#carbonads {
+  --width: 180px;
+  --font-size: 14px;
+}
+
+#carbonads {
+  background-color: $bg-color;
+  display: block;
+  font-size: var(--font-size);
+  line-height: 1.5;
+  margin: 1rem auto;
+  max-width: var(--width);
+  overflow: hidden;
+  text-align: center;
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  span {
+    display: block;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+.carbon-img {
+  display: block;
+  margin-bottom: 8px;
+  max-width: var(--width);
+  line-height: 1;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: var(--width) !important;
+    width: var(--width);
+    height: auto;
+  }
+}
+
+.carbon-text {
+  display: block;
+  padding: 0 1em 8px;
+}
+
+.carbon-poweredby {
+  background: $bg-color;
+  display: block;
+  font-weight: 600;
+  font-size: 9px;
+  letter-spacing: .5px;
+  padding: 10px var(--font-size);
+  text-transform: uppercase;
+}
+
+@media only screen and (min-width: 320px) and (max-width: $size-md) {
+  #carbonads {
+    float: none;
+    max-width: 18rem;
+
+    span {
+      position: relative;
+    }
+
+    & > span {
+      max-width: none;
+    }
+  }
+
+  .carbon-img {
+    float: left;
+    margin: 0;
+
+    img {
+      max-width: 130px !important;
+    }
+  }
+
+  .carbon-text {
+    float: left;
+    margin-bottom: 0;
+    max-width: calc(100% - 130px - 3em);
+    padding: 8px 20px;
+    text-align: left;
+  }
+
+  .carbon-poweredby {
+    bottom: 0;
+    display: block;
+    left: 130px;
+    width: 100%;
+  }
+}
