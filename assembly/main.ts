@@ -1,7 +1,7 @@
 import { context, storage, math, PersistentMap, PersistentVector, base64 } from "near-runtime-ts";
 // available class: near, context, storage, logging, base58, base64, 
 // PersistentMap, PersistentVector, PersistentDeque, PersistentTopN, ContractPromise, math
-import { Post, PostArray, User } from "./model";
+import { Post, PostArray } from "./model";
 
 const NAME: string = "NEAR Social";
 const QUERY_LIMIT = 20;
@@ -13,16 +13,13 @@ let postsByUser = new PersistentMap<string, PostArray>("pu");
 // let users = new PersistentMap<string, User>("u");
 
 // Get Recent Posts
-export function getRecentPosts(): Array<Post> {
-  let numPosts = min(QUERY_LIMIT, postsTimeline.length);
-  let endIndex = postsTimeline.length - numPosts - 1;
-
-  let _posts = new Array<Post>(numPosts);
-  for (let i = postsTimeline.length; i > endIndex; --i) {
+export function getRecentPosts(): PostArray {
+  let _posts = new PostArray();
+  for (let i = 0; i < postsTimeline.length; ++i) {
     let _post = new Post();
     let _id = postsTimeline[i];
     _post = getPost(_id);
-    _posts.push(_post);
+    _posts.posts.push(_post);
   }
   return _posts;
 }
@@ -79,7 +76,7 @@ export function addPost(title: string, content: string, published_at: i32, type:
   post.user = context.sender;
   post.type = type;
   setPost(post);
-  updatePostsTimeline(post);
+  updatePostsTimeline(post.id);
   return post;
 }
 
@@ -91,6 +88,6 @@ function generateRandomId(): string {
 }
 
 // Update Posts Timeline
-function updatePostsTimeline(post: Post): void {
-  postsTimeline.push(post.id);
+function updatePostsTimeline(id: string): void {
+  postsTimeline.push(id);
 }
