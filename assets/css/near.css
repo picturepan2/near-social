@@ -2940,6 +2940,10 @@ a.text-error:visited {
   margin-top: 1rem;
 }
 
+.section-main .sign-in-button {
+  margin: 1rem 0;
+}
+
 .section-main .nearsocial-title {
   margin-bottom: 1rem;
 }
