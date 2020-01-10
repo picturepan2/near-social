@@ -73,6 +73,13 @@ Zepto(function($){
     });
 
     $('#input-button').click(submitPost);
+    $('#input-title').keypress(function (e) {
+      if (e.which == 13) {
+        e.preventDefault();
+        submitPost();
+        return false;
+      }
+    });
     $('#refresh-button').click(refreshPosts);
   }
 
@@ -105,17 +112,15 @@ Zepto(function($){
   }
 
   // Render Posts
-  // TODO: Render Posts Normally
   function renderPosts(posts) {
     let html = '';
-    for (let i = 0; i < posts.posts.length; ++i) {
+    for (let i = posts.posts.length - 1; i >= 0; --i) {
       html += '<div class="nearpost-item">';
       html += '<div class="post-date">' + posts.posts[i].published_at + '</div>';
       html += '<div class="post-title">' + posts.posts[i].title + '</div>';
       html += '<div class="post-user">' + posts.posts[i].user + '</div>';
       html += '<div class="post-action"></div>';
       html += '</div>';
-      console.log(posts.posts[i].title);
     }
     console.log(posts);
     $('#posts').empty().append(html);
