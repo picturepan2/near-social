@@ -41,16 +41,18 @@ Zepto(function($){
       signedOutFlow();
     } else {
       signedInFlow();
+      refreshPosts();
     }
   }
 
   // Sighted Out Flow
   function signedOutFlow() {
-    $('#sign-in-button').removeClass('d-none');
+    $('.sign-in-button').removeClass('d-none');
     $('.intro').removeClass('d-none');
     $('#fake-data').removeClass('d-none');
+    $('.sign-in-button').removeClass('d-none');
     
-    $('#sign-in-button').on('click', function(e) {
+    $('.sign-in-button').on('click', function(e) {
       window.walletAccount.requestSignIn(
         window.nearConfig.contractName,
         'NEAR Social'
@@ -61,13 +63,14 @@ Zepto(function($){
   // Signed In Flow
   function signedInFlow() {
     $('#username').html('loading');
-    $('#sign-out-button').removeClass('d-none');
+    $('.sign-out-button').removeClass('d-none');
     $('.input').removeClass('d-none');
+    $('#refresh-button').removeClass('d-none');
     // Render current username
     var username = window.accountId;
     $('#username').html(username);
 
-    $('#sign-out-button').on('click', function(e) {
+    $('.sign-out-button').on('click', function(e) {
       walletAccount.signOut();
       window.location.replace(window.location.origin + window.location.pathname);
     });
