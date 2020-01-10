@@ -66,7 +66,7 @@ export function userOf(id: string): string {
 }
 
 // Add Post
-export function addPost(title: string, content: string, published_at: i32, type: string): Post {
+export function addPost(title: string, content: string, published_at: u64, type: string): Post {
   let post = new Post();
   let randId = generateRandomId();
   post.id = randId;

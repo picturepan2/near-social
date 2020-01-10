@@ -4,7 +4,7 @@ export class Post {
   id: string;
   title: string;
   content: string;
-  published_at: i32; // TODO: Use the timestamp on blockchain
+  published_at: u64; // TODO: Use the timestamp on blockchain
   user: string;
   type: string;
 }
