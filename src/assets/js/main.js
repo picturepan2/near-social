@@ -42,9 +42,6 @@ Zepto(function($){
     } else {
       signedInFlow();
       refreshPosts();
-      let date = new Date();
-      let published_at = date.getTime();
-      console.log(published_at);
     }
   }
 
@@ -144,6 +141,6 @@ Zepto(function($){
     var min = a.getMinutes();
     var sec = a.getSeconds();
     var time = month + ' ' + date + ', ' + year + ' ' + hour + ':' + min ;
-    return UNIX_timestamp;
+    return UNIX_timestamp; // TODO: return time;
   }
 })
