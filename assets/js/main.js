@@ -39,8 +39,10 @@ Zepto(function($){
   async function init() {
     if (!window.walletAccount.isSignedIn()) {
       signedOutFlow();
+      refreshPosts();
     } else {
       signedInFlow();
+      refreshPosts();
     }
   }
 
