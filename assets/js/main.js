@@ -42,6 +42,9 @@ Zepto(function($){
     } else {
       signedInFlow();
       refreshPosts();
+      let date = new Date();
+      let published_at = date.getTime();
+      console.log(published_at);
     }
   }
 
@@ -93,7 +96,7 @@ Zepto(function($){
     let date = new Date();
     let published_at = date.getTime();
     let type = 'text' // TODO: Add more Type string
-
+  
     $('#input-title').addClass('disabled');
     // Call the addPost contract
     contract.addPost({title: title, content: content, published_at: published_at, type: type})
@@ -118,8 +121,9 @@ Zepto(function($){
   function renderPosts(posts) {
     let html = '';
     for (let i = posts.posts.length - 1; i >= 0; --i) {
+      let date = timeConverter(posts.posts[i].published_at);
       html += '<div class="nearpost-item">';
-      html += '<div class="post-date">' + posts.posts[i].published_at + '</div>';
+      html += '<div class="post-date">' + date + '</div>';
       html += '<div class="post-title">' + posts.posts[i].title + '</div>';
       html += '<div class="post-user">' + posts.posts[i].user + '</div>';
       html += '<div class="post-action"></div>';
@@ -127,5 +131,19 @@ Zepto(function($){
     }
     console.log(posts);
     $('#posts').empty().append(html);
+  }
+
+  // Date and Time
+  function timeConverter(UNIX_timestamp){
+    var a = new Date(UNIX_timestamp);
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var hour = a.getHours();
+    var min = a.getMinutes();
+    var sec = a.getSeconds();
+    var time = month + ' ' + date + ', ' + year + ' ' + hour + ':' + min ;
+    return UNIX_timestamp;
   }
 })
