@@ -78,7 +78,7 @@ Zepto(function($){
 
   // Submit Post Flow
   function submitPost() {
-    let title = $('#input-title').html();
+    let title = $('#input-title').val();
     let content = ''; // TODO: Add Content string
     let date = new Date();
     let published_at = date.getTime();
@@ -108,5 +108,6 @@ Zepto(function($){
   // TODO: Render Posts Normally
   function renderPosts(posts) {
     console.log(posts);
+    
   }
 })
