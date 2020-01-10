@@ -11,7 +11,7 @@ export class Post {
 
 // Model: Post Array
 export class PostArray {
-  posts: Array<Post>;
+  posts: Array<Post> = [];
 }
 
 // Model: Post Array
