@@ -54,4 +54,4 @@ function watch() {
 exports.default = gulp.series(["build"]);
 exports.watch = watch;
 exports.css = css;
-exports.css = web;
+exports.web = web;
